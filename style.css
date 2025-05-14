@@ -2484,7 +2484,7 @@ body.overlay .login-container {
 
         .search {
             position: absolute;
-            top: -0.3rem;
+            top: -2rem;
             max-width: 10rem;
             width: 100%;
             opacity: 0;
