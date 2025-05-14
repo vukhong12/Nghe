@@ -16,6 +16,7 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
 }
+
 .progress-container {
     position: relative;
     width: 100%;
@@ -45,6 +46,7 @@ body {
     width: 0%;
     z-index: 2;
 }
+
 :root {
     /* 🎨 Màu sắc chính */
     --primary-color: #2563eb;
@@ -169,6 +171,7 @@ body {
     color: var(--white);
     text-decoration: none;
     font-size: 1.1rem;
+    display: flex;
     /* 11px */
 }
 
@@ -281,7 +284,7 @@ body {
 .controls-left {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0rem;
     /* 10px */
 }
 
@@ -291,7 +294,7 @@ body {
     color: var(--white);
     font-size: 1rem;
     /* 10px */
-    margin-right: 1rem;
+    margin-right: 0.2rem;
     /* 10px */
     cursor: pointer;
 }
@@ -352,6 +355,7 @@ body {
 
 .controls-right {
     display: flex;
+
     align-items: center;
     gap: 1rem;
     /* 10px */
@@ -536,7 +540,8 @@ body {
     transition: all 0.1s ease-in;
     background: transparent;
 }
-#toggle-upnext1:hover{
+
+#toggle-upnext1:hover {
     background: #656565;
 }
 
@@ -2440,6 +2445,7 @@ body.overlay .login-container {
         display: flex;
         gap: var(--spacing-lg);
         justify-items: center;
+        justify-content: center;
     }
 
     .sidebar-nav li:hover i {
@@ -2451,12 +2457,18 @@ body.overlay .login-container {
     }
 
     .sidebar-nav ul li {
-        margin-top: -0.8rem;
+        margin-top: -0.1rem;
         display: flex;
         justify-content: center;
         align-items: center;
         margin-bottom: 0;
         cursor: pointer;
+        white-space: nowrap;
+        /* Ngăn không cho phần tử xuống dòng */
+    }
+
+    .sidebar-nav ul li p {
+        display: none;
     }
 
     .sidebar-nav a {
@@ -2537,7 +2549,20 @@ body.overlay .login-container {
 
         opacity: 1;
     }
-
+        .login-btn {
+            background: var(--button-color);
+            padding: 0.6rem 0.8rem;
+            /* Điều chỉnh padding cho phù hợp */
+            border-radius: 0.5rem;
+            /* Bo góc nút */
+            color: var(--white);
+            /* Màu chữ */
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            white-space: nowrap;
+            font-size: 0.8rem;
+            /* Điều chỉnh kích thước chữ cho phù hợp */   }
     .music-action .fa-ellipsis-vertical {
         display: block;
     }
@@ -2607,5 +2632,12 @@ body.overlay .login-container {
     .custom-file-upload label {
         font-size: var(--font-size-md);
         padding: var(--spacing-md) 1.6rem;
+    }
+
+    .volume-bar {
+        transform: rotate(-90deg);
+        width: 200px;
+        position: absolute;
+        display: none;
     }
 }
