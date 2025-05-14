@@ -68,7 +68,13 @@ window.onload = function () {
         }
     });
     
-
+    document.getElementById("toggle-search").addEventListener("click", function () {
+        const searchForm = document.getElementById("search-form");
+        searchForm.classList.toggle("tim");
+    });
+    
+    
+    
     // === Tiến trình phát nhạc ===
     const bufferBar = document.getElementById('buffer-bar');
     const progressBar = document.getElementById('progress-bar');

@@ -18,25 +18,36 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <header class="sidebar-header">
-                <h1 class="logo"><a href="trang_chu.html">W Music</a></h1>
+                <h1 class="logo"><a href="index.html">W Music</a></h1>
             </header>
-            <form action="#" class="search">
-                <input type="search" placeholder="Tìm kiếm bài hát, nghệ sĩ..." aria-label="Tìm kiếm nhạc">
+            <form action="#" class="search" id="search-form">
+                <input type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm nhạc">
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
             <nav class="sidebar-nav">
-            <ul>
-                <li><a href="trang_chu.html"><i class="fa-solid fa-house"></i> Trang chủ </a></li>
-                <li><a href="khampha.html"><i class="fa-solid fa-table"></i> Khám phá</a></li>
-                <li><a href="theloai.html"><i class="fa-solid fa-layer-group"></i> Danh Mục</a></li>
-                <li><a href="#"><i class="fa-solid fa-music"></i> Thư viện</a></li>
-                <li class="sear"><a id="toggle-search"><i class="fa-solid fa-magnifying-glass"></i> Tim kiếm</a>
-                </li>
-            </ul>
+                <ul>
+                    <li><a href="index.html"><i class="fa-solid fa-house"></i>
+                            <p>Trang chủ</p>
+                        </a></li>
+                    <li><a href="khampha.html"><i class="fa-solid fa-table"></i>
+                            <p>Khám phá</p>
+                        </a></li>
+                    <li><a href="theloai.html"><i class="fa-solid fa-layer-group"></i>
+                            <p>Danh Mục</p>
+                        </a></li>
+                    <li><a href="thuvien.html"><i class="fa-solid fa-music"></i>
+                            <p>Thư viện</p>
+                        </a></li>
+                    <li class="sear">
+                        <a id="toggle-search"><i class="fa-solid fa-magnifying-glass"></i>
+                            <p>Tìm kiếm</p>
+                        </a>
+                    </li>
+                </ul>
             </nav>
             <footer class="sidebar-footer">
-                <a href="#">Mở trong ứng dụng W Music</a>
-                <a href="#">Trải nghiệm bản Beta</a>
+                <a href="#">Mở trong ứng dụng</a>
+                <a href="#">Dùng thử Beta</a>
             </footer>
         </aside>
 
@@ -46,9 +57,9 @@
             <!-- Music Controls -->
             <header class="music-controls">
                 <div class="controls-left">
-                    <button aria-label="Bài trước"><i class="fa-solid fa-backward"></i></button>
+                    <button id="prev-btn" aria-label="Bài trước"><i class="fa-solid fa-backward"></i></button>
                     <button id="toggleBtn" aria-label="Phát / Dừng"><i class="fa-solid fa-play"></i></button>
-                    <button aria-label="Bài tiếp"><i class="fa-solid fa-forward"></i></button>
+                    <button id="next-btn" aria-label="Bài tiếp"><i class="fa-solid fa-forward"></i></button>
                 </div>
                 <div class="controls-play">
                     <div class="play-img">
@@ -60,13 +71,15 @@
                             <p>Tên nghệ sĩ</p>
                         </div>
                         <div class="progress-container" onclick="setProgress(event)">
+                            <div class="buffer-bar" id="buffer-bar"></div>
                             <div class="progress-bar" id="progress-bar"></div>
                         </div>
                     </div>
                     <audio style="display: none;" id="adio" src="mp3/muon.mp3" controls></audio>
                 </div>
                 <div class="controls-right">
-                    <input type="range" class="volume-bar">
+                    <input type="range" class="volume-bar" id="volume-bar" min="0" max="1" step="0.01" value="1">
+            
                     <button id="toggle-upnext" aria-label="Hiển thị danh sách phát tiếp theo">
                         <i class="fa-solid fa-list"></i>
                     </button>

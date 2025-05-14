@@ -2482,23 +2482,22 @@ body.overlay .login-container {
         display: none;
     }
 
-    .search {
-        position: absolute;
-        top: 0.3rem;
-        max-width: 10rem;
-        width: 100%;
-        opacity: 0;
-        transition: all 0.3s ease;
-    }
-
-    .search.tim {
-        position: absolute;
-        top: 6.5rem;
-        max-width: 35rem;
-        width: 100%;
-        opacity: 1;
-    }
-
+        .search {
+            position: absolute;
+            top: -0.3rem;
+            max-width: 10rem;
+            width: 100%;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+    
+        .search.tim {
+            position: absolute;
+            top: 6.5rem;
+            max-width: 35rem;
+            width: 100%;
+            opacity: 1;
+        }
     .tim input {
         border: solid 0.1rem var(--white);
     }
