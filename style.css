@@ -2485,7 +2485,7 @@ body.overlay .login-container {
         .search {
             position: absolute;
             top: -2rem;
-            max-width: 10rem;
+            max-width: 8rem;
             width: 100%;
             opacity: 0;
             transition: all 0.3s ease;
@@ -2495,7 +2495,7 @@ body.overlay .login-container {
             position: absolute;
             top: 6.5rem;
             max-width: 35rem;
-            width: 100%;
+            width: 70%;
             opacity: 1;
         }
     .tim input {
