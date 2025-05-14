@@ -68,9 +68,20 @@ window.onload = function () {
         }
     });
     
-    document.getElementById("toggle-search").addEventListener("click", function () {
-        const searchForm = document.getElementById("search-form");
+    const toggleBtn22 = document.getElementById("toggle-search");
+    const searchForm = document.getElementById("search-form");
+    
+    toggleBtn22.addEventListener("click", function (event) {
+        event.stopPropagation(); // Ngăn chặn sự kiện lan ra ngoài
         searchForm.classList.toggle("tim");
+    });
+    
+    // Khi click ra ngoài thì đóng ô tìm kiếm
+    document.addEventListener("click", function (event) {
+        const isClickInside = searchForm.contains(event.target) || toggleBtn.contains(event.target);
+        if (!isClickInside) {
+            searchForm.classList.remove("tim");
+        }
     });
     
     
