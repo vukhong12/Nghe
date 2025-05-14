@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W Music - Khám phá nhạc mới</title>
+    <meta name="description" content="Khám phá các playlist và album nhạc hot nhất hôm nay.">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/color-thief/dist/color-thief.umd.js"></script>
+
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<body>
+
+    <div class="music-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <header class="sidebar-header">
+                <h1 class="logo"><a href="trang_chu.html">W Music</a></h1>
+            </header>
+            <form action="#" class="search">
+                <input type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm nhạc">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="trang_chu.html"><i class="fa-solid fa-house"></i> Trang chủ </a></li>
+                    <li><a href="khampha.html"><i class="fa-solid fa-table"></i> Khám phá</a></li>
+                    <li><a href="theloai.html"><i class="fa-solid fa-layer-group"></i> Danh Mục</a></li>
+                    <li><a href="#"><i class="fa-solid fa-music"></i> Thư viện</a></li>
+                    <li class="sear"><a id="toggle-search"><i class="fa-solid fa-magnifying-glass"></i> Tim kiếm</a>
+                    </li>
+                </ul>
+            </nav>
+            <footer class="sidebar-footer">
+                <a href="#">Mở trong ứng dụng</a>
+                <a href="#">Dùng thử Beta</a>
+            </footer>
+        </aside>
+
+        <!-- Main area -->
+        <div class="main-area">
+
+            <!-- Music Controls -->
+            <header class="music-controls">
+                <div class="controls-left">
+                    <button aria-label="Bài trước"><i class="fa-solid fa-backward"></i></button>
+                    <button id="toggleBtn" aria-label="Phát / Dừng"><i class="fa-solid fa-play"></i></button>
+                    <button aria-label="Bài tiếp"><i class="fa-solid fa-forward"></i></button>
+                </div>
+                <div class="controls-play">
+                    <div class="play-img">
+                        <img src="../img/pmq.png" alt="Ảnh bài hát đang phát">
+                    </div>
+                    <div class="play-info">
+                        <div>
+                            <h3>Tên bài hát</h3>
+                            <p>Tên nghệ sĩ</p>
+                        </div>
+                        <div class="progress-container" onclick="setProgress(event)">
+                            <div class="progress-bar" id="progress-bar"></div>
+                        </div>
+                    </div>
+                    <audio style="display: none;" id="adio" src="mp3/muon.mp3" controls></audio>
+                </div>
+                <div class="controls-right">
+                    <input type="range" class="volume-bar">
+                    <button id="toggle-upnext" aria-label="Hiển thị danh sách phát tiếp theo">
+                        <i class="fa-solid fa-list"></i>
+                    </button>
+                    <a href="#" class="login-btn">Đăng nhập</a>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <main class="main-content-left">
+                    <!-- Left -->
+                    <div class="album-info">
+                        <!-- Thông tin chính về album -->
+                        <!-- Thông tin chính về album -->
+                        <section class="album-info-left">
+                            <img src="../img/30-4.png" alt="Bìa album MULTIVERSE của Tùng Dương">
+                            <h2>MULTIVERSE</h2>
+                            <p><strong>Tùng Dương</strong> • 2024</p>
+                            <p><span>770</span> người yêu thích</p>
+
+                            <!-- Play Button -->
+
+                            <button class="play-btn" id="toggleBtn1"><i class="fa-solid fa-play"></i> </button>
+
+                            <div class="icons">
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+
+                        </section>
+                        <!-- Danh sách bài hát -->
+                        <section class="detail-list">
+                            <header class="detail-header">
+                                <span>BÀI HÁT</span>
+                                <span>THỜI GIAN</span>
+                            </header>
+
+                            <ul>
+                                <li>
+                                    <div class="detail-info">
+                                        <span>1</span>
+                                        <img src="../img/30-4.png" alt="Bìa bài hát Tái Sinh của Tùng Dương">
+                                        <div>
+                                            <p class="title">Tái Sinh</p>
+                                            <p class="artist">Tùng Dương</p>
+                                        </div>
+                                    </div>
+                                    <span class="duration">04:00</span>
+                                </li>
+                                <!-- Thêm bài hát khác -->
+                            </ul>
+
+                            <!-- Thông tin bài hát cụ thể -->
+                            <article class="inf">
+                                <h3>Thông Tin Bài Hát</h3>
+                                <p><strong>Ngày phát hành:</strong> <time datetime="2025-05-07">07/05/2025</time></p>
+
+                                <section>
+                                    <h3>Nội dung</h3>
+                                    <div class="preview-content">
+                                        <p>Đây là phần giới thiệu ngắn gọn về bài hát...</p>
+                                    </div>
+                                    <button aria-label="Xem thêm nội dung bài hát">Xem thêm</button>
+                                </section>
+                            </article>
+                            <!-- bình luận -->
+                            <article>
+                                <h3>Bình luận</h3>
+                                <div class="comment-section">
+                                    <form class="comment-form">
+                                        <textarea placeholder="Viết bình luận..."></textarea>
+                                        <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+                                    </form>
+                                    <ul class="comment-list">
+                                        <li class="comment-item">
+                                            <strong>Người dùng 1:</strong> Bình luận của người dùng 1
+                                        </li>
+                                        <li class="comment-item">
+                                            <strong>Người dùng 2:</strong> Bình luận của người dùng 2
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </section>
+                    </div>
+
+                    <section>
+                        <h2>Liên quan</h2>
+                        <div class="track-section">
+                            <article class="track-card">
+                                <div class="track-image">
+                                    <img class="trackImage" src="../img/image.png" crossorigin="anonymous"
+                                        alt="Track 1" />
+                                    <div class="related-text">RELATED TRACKS</div>
+                                    <div class="hinh">
+
+                                    </div>
+                                </div>
+                                <header>
+                                    <h2 class="track-title">TINGTING 1 - ANPHAM...</h2>
+                                    <p class="track-subtitle">ANPHAM✈️, THÀNH...</p>
+                                </header>
+                            </article>
+
+                            <article class="track-card">
+                                <div class="track-image">
+                                    <img class="trackImage" src="../img/image.png" crossorigin="anonymous"
+                                        alt="Track 1" />
+                                    <div class="related-text">RELATED TRACKS</div>
+                                    <div class="hinh">
+
+                                    </div>
+                                </div>
+                                <header>
+                                    <h2 class="track-title">TINGTING 1 - ANPHAM...</h2>
+                                    <p class="track-subtitle">ANPHAM✈️, THÀNH...</p>
+                                </header>
+                            </article>
+
+                            <article class="track-card">
+                                <div class="track-image">
+                                    <img class="trackImage" src="../img/image.png" crossorigin="anonymous"
+                                        alt="Track 1" />
+                                    <div class="related-text">RELATED TRACKS</div>
+                                    <div class="hinh">
+
+                                    </div>
+                                </div>
+                                <header>
+                                    <h2 class="track-title">TINGTING 1 - ANPHAM...</h2>
+                                    <p class="track-subtitle">ANPHAM✈️, THÀNH...</p>
+                                </header>
+                            </article>
+
+                            <article class="track-card">
+                                <div class="track-image">
+                                    <img class="trackImage" src="../img/image.png" crossorigin="anonymous"
+                                        alt="Track 1" />
+                                    <div class="related-text">RELATED TRACKS</div>
+                                    <div class="hinh">
+
+                                    </div>
+                                </div>
+                                <header>
+                                    <h2 class="track-title">TINGTING 1 - ANPHAM...</h2>
+                                    <p class="track-subtitle">ANPHAM✈️, THÀNH...</p>
+                                </header>
+                            </article>
+
+                            <article class="track-card">
+                                <div class="track-image">
+                                    <img class="trackImage" src="../img/image.png" crossorigin="anonymous"
+                                        alt="Track 1" />
+                                    <div class="related-text">RELATED TRACKS</div>
+                                    <div class="hinh">
+
+                                    </div>
+                                </div>
+                                <header>
+                                    <h2 class="track-title">TINGTING 1 - ANPHAM...</h2>
+                                    <p class="track-subtitle">ANPHAM✈️, THÀNH...</p>
+                                </header>
+                            </article>
+
+                        </div>
+                    </section>
+                </main>
+                <footer class="footer">
+                    <div class="footer-section footer-logo">
+                        <img src="../img/30-4.png" alt="Logo W Music">
+                    </div>
+
+                    <div class="footer-section footer-content">
+                        <p>© 2024 W Music. Bản quyền thuộc về W Music.</p>
+
+                        <ul class="social-icons">
+                            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                        </ul>
+
+                        <div class="contact-info">
+                            <p>Hotline: <a href="tel:0123456789">0123 456 789</a></p>
+                            <p>Email: <a href="vanvu03022005@gmail.com">vanvu03022005@gmail.com</a></p>
+                            <p>Địa chỉ: Hải Bình, Hải Lăng, Quảng Trị</p>
+                        </div>
+                    </div>
+
+                    <div class="footer-section footer-links">
+                        <a href="#">Giới thiệu</a>
+                        <a href="#">Điều khoản sử dụng</a>
+                        <a href="#">Chính sách bảo mật</a>
+                        <a href="#">Liên hệ</a>
+                        <a href="#">Hỗ trợ khách hàng</a>
+                    </div>
+                </footer>
+
+                <aside class="up-next">
+                    <h3>Tiếp theo</h3>
+                    <p>Không có bài hát nào sắp tới.</p>
+                    <audio id="audio" src="mp3/muon.wav"></audio>
+
+                </aside>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W Music - Nghe nhạc online, tải nhạc miễn phí, playlist hot</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/color-thief/dist/color-thief.umd.js"></script>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<body>
+
+    <div class="music-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <header class="sidebar-header">
+                <h1 class="logo"><a href="trang_chu.html">W Music</a></h1>
+            </header>
+            <form action="#" class="search">
+                <input type="search" placeholder="Tìm kiếm bài hát, nghệ sĩ..." aria-label="Tìm kiếm nhạc">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="trang_chu.html"><i class="fa-solid fa-house"></i> Trang chủ </a></li>
+                    <li><a href="khampha.html"><i class="fa-solid fa-table"></i> Khám phá</a></li>
+                    <li><a href="theloai.html"><i class="fa-solid fa-layer-group"></i> Danh Mục</a></li>
+                    <li><a href="#"><i class="fa-solid fa-music"></i> Thư viện</a></li>
+                    <li class="sear"><a id="toggle-search"><i class="fa-solid fa-magnifying-glass"></i> Tim kiếm</a>
+                    </li>
+                </ul>
+            </nav>
+            <footer class="sidebar-footer">
+                <a href="#">Mở trong ứng dụng W Music</a>
+                <a href="#">Trải nghiệm bản Beta</a>
+            </footer>
+        </aside>
+
+        <!-- Main area -->
+        <div class="main-area">
+
+            <!-- Music Controls -->
+            <header class="music-controls">
+                <div class="controls-left">
+                    <button aria-label="Bài trước"><i class="fa-solid fa-backward"></i></button>
+                    <button id="toggleBtn" aria-label="Phát / Dừng"><i class="fa-solid fa-play"></i></button>
+                    <button aria-label="Bài tiếp"><i class="fa-solid fa-forward"></i></button>
+                </div>
+                <div class="controls-play">
+                    <div class="play-img">
+                        <img src="../img/pmq.png" alt="Ảnh bài hát đang phát">
+                    </div>
+                    <div class="play-info">
+                        <div>
+                            <h3>Tên bài hát</h3>
+                            <p>Tên nghệ sĩ</p>
+                        </div>
+                        <div class="progress-container" onclick="setProgress(event)">
+                            <div class="progress-bar" id="progress-bar"></div>
+                        </div>
+                    </div>
+                    <audio style="display: none;" id="adio" src="mp3/muon.mp3" controls></audio>
+                </div>
+                <div class="controls-right">
+                    <input type="range" class="volume-bar">
+                    <button id="toggle-upnext" aria-label="Hiển thị danh sách phát tiếp theo">
+                        <i class="fa-solid fa-list"></i>
+                    </button>
+                    <a href="#" class="login-btn">Đăng nhập</a>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="content-area">
+
+                <main class="main-content-left">
+                    <section class="library-header">
+                        <h2>Thư viện của tôi</h2>
+                    </section>
+
+                    <!-- Nhạc đã nghe -->
+                    <section class="library-section">
+                        <h3>Đã nghe gần đây</h3>
+                        <div class="track-list">
+                            <!-- Mỗi bài nhạc -->
+                            <div class="track-item">
+                                <img src="../img/pmq.png" alt="cover" class="track-cover" />
+                                <div class="track-info">
+                                    <h4 class="track-title">Tên bài hát đã nghe</h4>
+                                    <p class="track-meta">Nghe lúc: 07/05/2025 - 14:20</p>
+                                </div>
+                            </div>
+                            <!-- ... -->
+                        </div>
+                    </section>
+
+                    <!-- Nhạc yêu thích -->
+                    <section class="library-section">
+                        <h3>Yêu thích</h3>
+                        <div class="track-list">
+                            <div class="track-item">
+                                <img src="../img/pmq.png" alt="cover" class="track-cover" />
+                                <div class="track-info">
+                                    <h4 class="track-title">Tên bài hát yêu thích</h4>
+                                    <p class="track-meta">Lượt nghe: 900 • Người đăng: ABC</p>
+                                </div>
+                            </div>
+                            <!-- ... -->
+                        </div>
+                    </section>
+                </main>
+
+                <footer class="footer">
+                    <div class="footer-section footer-logo">
+                        <img src="../img/30-4.png" alt="Logo chính thức W Music">
+                    </div>
+                    <div class="footer-section footer-content">
+                        <p>© 2024 W Music. Bản quyền thuộc về W Music.</p>
+                        <ul class="social-icons">
+                            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                        </ul>
+                        <div class="contact-info">
+                            <p>Hotline: <a href="tel:0123456789">0123 456 789</a></p>
+                            <p>Email: <a href="mailto:vanvu03022005@gmail.com">vanvu03022005@gmail.com</a></p>
+                            <p>Địa chỉ: Hải Bình, Hải Lăng, Quảng Trị</p>
+                        </div>
+                    </div>
+                    <div class="footer-section footer-links">
+                        <a href="#">Giới thiệu W Music</a>
+                        <a href="#">Điều khoản sử dụng dịch vụ</a>
+                        <a href="#">Chính sách bảo mật người dùng</a>
+                        <a href="#">Liên hệ hỗ trợ</a>
+                        <a href="#">Hỗ trợ khách hàng 24/7</a>
+                    </div>
+                </footer>
+
+                <aside class="up-next">
+                    <h3>Bài hát sắp phát</h3>
+                    <button id="toggle-upnext1" aria-label="Đóng danh sách phát tiếp theo">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>   
+                    <p>Không có bài hát nào sắp tới.</p>
+                    <audio id="audio" src="mp3/muon.wav"></audio>
+
+                </aside>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

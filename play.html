@@ -1,0 +1,29 @@
+<!-- player.html -->
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Player</title>
+</head>
+
+<body style="margin:0; background:#000; color:#fff; display:flex; align-items:center; justify-content:center;">
+    <audio id="audio" controls autoplay>
+        <source src="mp3/muon.wav" type="audio/wav">
+    </audio>
+
+    <script>
+        const audio = document.getElementById("audio");
+        const savedTime = localStorage.getItem("currentTime");
+
+        if (savedTime) {
+            audio.currentTime = parseFloat(savedTime);
+        }
+
+        setInterval(() => {
+            localStorage.setItem("currentTime", audio.currentTime);
+        }, 1000);
+    </script>
+</body>
+
+</html>
