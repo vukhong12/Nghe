@@ -2373,7 +2373,61 @@ body.overlay .login-container {
     color: #777;
     font-size: 14px;
 }
+.song {
+    padding: 1rem;
+    border-bottom: 1px solid #444;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
 
+.song img {
+    border-radius: 0.5rem;
+}
+.song-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: s;
+}
+.song {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.song:hover {
+    background-color: var(--dark-gray);
+}
+
+.song.playing {
+    background: var(--dark-gray);
+    box-shadow: 0 0 5px var(--border-active);
+}
+
+.song img {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.song-info h3 {
+    margin: 0;
+    color: #fff;
+}
+
+.song-info p {
+    margin: 0.2rem 0 0;
+    color: #ccc;
+}
+#playlist-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 /* === RESPONSIVE === */
 @media (max-width: 76.8rem) {
     .premium-header h2 {

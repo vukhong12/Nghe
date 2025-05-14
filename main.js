@@ -20,7 +20,6 @@ window.onload = function () {
         const icon = isPlaying
             ? '<i class="fa-solid fa-pause"></i>'
             : '<i class="fa-solid fa-play"></i>';
-
         if (toggleBtn) toggleBtn.innerHTML = icon;
         if (toggleBtn1) toggleBtn1.innerHTML = icon;
     }
@@ -42,7 +41,6 @@ window.onload = function () {
 
     document.addEventListener('keydown', (event) => {
         const tag = document.activeElement.tagName;
-
         if (!['INPUT', 'TEXTAREA'].includes(tag)) {
             switch (event.code) {
                 case 'Space':
@@ -50,42 +48,31 @@ window.onload = function () {
                     toggleAudio();
                     break;
                 case 'ArrowRight':
-                    if (event.shiftKey) {
-                        next();
-                    } else {
-                        audio.currentTime = Math.min(audio.duration, audio.currentTime + 5);
-                    }
+                    event.shiftKey ? next() : audio.currentTime = Math.min(audio.duration, audio.currentTime + 5);
                     break;
                 case 'ArrowLeft':
-                    if (event.shiftKey) {
-                        prev();
-                    } else {
-                        audio.currentTime = Math.max(0, audio.currentTime - 5);
-                    }
+                    event.shiftKey ? prev() : audio.currentTime = Math.max(0, audio.currentTime - 5);
                     break;
-
             }
         }
     });
-    
+
+    // === Tìm kiếm ===
     const toggleBtn22 = document.getElementById("toggle-search");
     const searchForm = document.getElementById("search-form");
-    
-    toggleBtn22.addEventListener("click", function (event) {
-        event.stopPropagation(); // Ngăn chặn sự kiện lan ra ngoài
+
+    toggleBtn22?.addEventListener("click", function (event) {
+        event.stopPropagation();
         searchForm.classList.toggle("tim");
     });
-    
-    // Khi click ra ngoài thì đóng ô tìm kiếm
+
     document.addEventListener("click", function (event) {
         const isClickInside = searchForm.contains(event.target) || toggleBtn.contains(event.target);
         if (!isClickInside) {
             searchForm.classList.remove("tim");
         }
     });
-    
-    
-    
+
     // === Tiến trình phát nhạc ===
     const bufferBar = document.getElementById('buffer-bar');
     const progressBar = document.getElementById('progress-bar');
@@ -95,36 +82,37 @@ window.onload = function () {
             const bufferedEnd = audio.buffered.end(audio.buffered.length - 1);
             const duration = audio.duration;
             if (duration > 0) {
-                const percent = (bufferedEnd / duration) * 100;
-                bufferBar.style.width = percent + '%';
+                bufferBar.style.width = (bufferedEnd / duration) * 100 + '%';
             }
         }
     });
 
     audio.addEventListener('timeupdate', () => {
-        const percent = (audio.currentTime / audio.duration) * 100;
-        progressBar.style.width = percent + '%';
-        if(audio.currentTime >= audio.duration){
-             nextSong() }
+        if (audio.duration) {
+            progressBar.style.width = (audio.currentTime / audio.duration) * 100 + '%';
+            if (audio.currentTime >= audio.duration) {
+                nextSong();
+            }
+        }
     });
 
     // === Playlist ===
     const playlist = [
         {
             title: "Muộn rồi mà sao còn",
-            artist: "Sơn Tùng M-TP",
+            artist: "KV Vũ",
             src: "mp3/muon.wav",
             img: "img/pmq.png"
         },
         {
             title: "Chúng ta không thuộc về nhau",
-            artist: "Sơn Tùng M-TP",
+            artist: "KV Vũ",
             src: "mp3/12A - 140 - LAO TÂM KHỔ TỨ - MK.mp3",
             img: "img/song2.jpg"
         },
         {
-            title: "Lạc trôi",
-            artist: "Sơn Tùng M-TP",
+            title: "Tình đầu quá chén",
+            artist: "KV Vũ",
             src: "mp3/Tình Đầu Quá Chén - Tino.mp3",
             img: "img/song3.jpg"
         }
@@ -132,44 +120,62 @@ window.onload = function () {
 
     let currentSongIndex = 0;
 
-    function renderCurrentSong() {
+    function renderPlaylist() {
         const container = document.getElementById('playlist-container');
         if (!container) return;
-
         container.innerHTML = '';
-        const song = playlist[currentSongIndex];
 
-        const songElement = document.createElement('div');
-        songElement.classList.add('song');
-        songElement.innerHTML = `
-            <img src="${song.img}" alt="${song.title}" width="100">
-            <h3>${song.title}</h3>
-            <p>${song.artist}</p>
-        `;
+        playlist.forEach((song, index) => {
+            const songElement = document.createElement('div');
+            songElement.classList.add('song');
+            if (index === currentSongIndex) {
+                songElement.classList.add('playing');
+            }
 
-        container.appendChild(songElement);
-        audio.src = song.src;
-        audio.controls = true;
+            songElement.innerHTML = `
+                <img src="${song.img}" alt="${song.title}">
+                <div class="song-list">
+                    <h3>${song.title}</h3>
+                    <p>${song.artist}</p>
+                </div>
+            `;
+
+            songElement.addEventListener('click', () => {
+                currentSongIndex = index;
+                audio.src = song.src;
+                audio.play();
+                updateButtons(true);
+                renderPlaylist();
+            });
+
+            container.appendChild(songElement);
+        });
+
         container.appendChild(audio);
     }
 
     function nextSong() {
         currentSongIndex = (currentSongIndex + 1) % playlist.length;
-        renderCurrentSong();
-        toggleAudio();
+        audio.src = playlist[currentSongIndex].src;
+        audio.play();
+        updateButtons(true);
+        renderPlaylist();
     }
 
     function prevSong() {
         currentSongIndex = (currentSongIndex - 1 + playlist.length) % playlist.length;
-        renderCurrentSong();
-        toggleAudio();
+        audio.src = playlist[currentSongIndex].src;
+        audio.play();
+        updateButtons(true);
+        renderPlaylist();
     }
 
-    renderCurrentSong();
-
+    renderPlaylist();
+    audio.src = playlist[currentSongIndex].src;
     document.getElementById('next-btn')?.addEventListener('click', nextSong);
     document.getElementById('prev-btn')?.addEventListener('click', prevSong);
 
+    // === Click tiến trình để tua ===
     const progressContainer = document.querySelector('.progress-container');
     progressContainer?.addEventListener('click', (event) => {
         const clickX = event.offsetX;
@@ -185,29 +191,26 @@ window.onload = function () {
         const volume = event.target.value;
         audio.volume = volume;
     });
+
     document.addEventListener('keydown', (event) => {
         const tag = document.activeElement.tagName;
-
         if (!['INPUT', 'TEXTAREA'].includes(tag)) {
             switch (event.code) {
                 case 'ArrowUp':
                     event.preventDefault();
                     audio.volume = Math.min(1, audio.volume + 0.1);
                     if (volumeBar) volumeBar.value = audio.volume.toFixed(2);
-                    console.log('Âm lượng:', Math.round(audio.volume * 100) + '%');
                     break;
-
                 case 'ArrowDown':
                     event.preventDefault();
                     audio.volume = Math.max(0, audio.volume - 0.1);
                     if (volumeBar) volumeBar.value = audio.volume.toFixed(2);
-                    console.log('Âm lượng:', Math.round(audio.volume * 100) + '%');
                     break;
             }
         }
     });
 
-    // === Slide (sửa lỗi) ===
+    // === Slide ===
     const slide = [
         document.getElementById("slide1"),
         document.getElementById("slide2"),
