@@ -573,12 +573,12 @@ body {
     margin-bottom: var(--spacing-lg);
 }
 
-.banner {
+.bannerss {
     border-radius: 0.8rem;
     position: absolute;
     max-width: 600px;
     width: 100%;
-    aspect-ratio: 3 / 1.7;
+    aspect-ratio: 3 / 1.6;
     overflow: hidden;
     background-color: #111;
     color: white;
@@ -600,7 +600,6 @@ body {
     object-position: 0rem 10rem;
     background-color: #000;
     /* Nên có màu nền để không thấy viền trắng */
-    border-radius: 0.8rem;
 }
 
 .banner-text {
@@ -781,9 +780,9 @@ body {
 .music-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 0.5rem;
     /* 20px */
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     /* 10px 0 */
 }
 
@@ -797,7 +796,7 @@ body {
     color: var(--text-color);
     transition: transform 0.3s ease;
     cursor: pointer;
-    padding: 1rem;
+    padding: 0.5rem;
     /* 10px */
 }
 
@@ -917,7 +916,7 @@ body {
     color: var(--text-color);
     transition: transform 0.3s ease;
     cursor: pointer;
-    padding: 1rem;
+    padding: 0.5rem;
     /* 10px */
 }
 
@@ -1021,12 +1020,13 @@ span {
     display: grid;
     display: flex;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 1rem;
     /* 20px */
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     /* 10px 0 */
     overflow: hidden;
     position: relative;
+    margin-top: var(--spacing-sm);
 }
 
 .bxh {
@@ -1893,10 +1893,10 @@ span {
 
 /* === LIBRARY === */
 .library-header h2 {
-    font-size: 28px;
-    margin-bottom: 24px;
-    border-bottom: 2px solid var(--border-light);
-    padding-bottom: 10px;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 0.2rem solid var(--border-light);
+    padding-bottom: 1rem;
 }
 
 .library-section {
@@ -1904,10 +1904,10 @@ span {
 }
 
 .library-section h3 {
-    font-size: 22px;
-    margin-bottom: 16px;
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
     color: white;
-    border-left: 4px solid var(--border-active);
+    border-left: 0.2rem solid var(--border-active);
     padding-left: 10px;
 }
 
@@ -1942,11 +1942,6 @@ span {
     flex: 1;
 }
 
-.track-title {
-    margin: 0;
-    font-size: 18px;
-    color: var(--white);
-}
 
 .track-meta {
     font-size: 14px;
@@ -2373,6 +2368,7 @@ body.overlay .login-container {
     color: #777;
     font-size: 14px;
 }
+
 .song {
     padding: 1rem;
     border-bottom: 1px solid #444;
@@ -2384,11 +2380,13 @@ body.overlay .login-container {
 .song img {
     border-radius: 0.5rem;
 }
-.song-list{
+
+.song-list {
     display: flex;
     flex-direction: column;
     justify-content: s;
 }
+
 .song {
     display: flex;
     gap: 1rem;
@@ -2423,17 +2421,21 @@ body.overlay .login-container {
     margin: 0.2rem 0 0;
     color: #ccc;
 }
-#playlist-container{
+
+#playlist-container {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
+
 /* === RESPONSIVE === */
 @media (max-width: 76.8rem) {
     .premium-header h2 {
         font-size: 2rem;
     }
-
+    .discover{
+        height: 60vh;
+    }
     .premium-plan {
         width: 100%;
         max-width: 350px;
@@ -2470,6 +2472,7 @@ body.overlay .login-container {
 
     .footer {
         bottom: 60px;
+        flex-direction: column;
     }
 
     .main-area {
@@ -2482,8 +2485,26 @@ body.overlay .login-container {
         bottom: 0;
         left: 0;
         width: 100%;
+        height: 3.5rem;
     }
-
+    .controls-play{
+        max-width: none;
+        position: absolute;
+        bottom: 3.5rem;
+        left: 0;
+        animation: nhac 0.8s  alternate;
+    }
+    /* .play-info{
+        flex: 1;
+    } */
+    @keyframes nhac {
+        0%{
+            left: -100%;
+        }
+        100%{
+            left: 0;
+        }
+    }
     .content-area {
         flex-direction: column;
         margin-top: 0;
@@ -2494,7 +2515,15 @@ body.overlay .login-container {
         margin-top: var(--spacing-xl);
         margin-top: 0;
     }
-
+    .info-card h3 {
+        font-size: 1rem;
+        /* 16px */
+        font-weight: 400;
+        margin: 0 0.1rem;
+    }
+    .info-card p a{
+        font-size: 0.9rem;
+    }
     .sidebar-nav ul {
         display: flex;
         gap: var(--spacing-lg);
@@ -2536,22 +2565,23 @@ body.overlay .login-container {
         display: none;
     }
 
-        .search {
-            position: absolute;
-            top: -2rem;
-            max-width: 8rem;
-            width: 100%;
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-    
-        .search.tim {
-            position: absolute;
-            top: 6.5rem;
-            max-width: 35rem;
-            width: 70%;
-            opacity: 1;
-        }
+    .search {
+        position: absolute;
+        top: -2rem;
+        max-width: 8rem;
+        width: 100%;
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .search.tim {
+        position: absolute;
+        top: 6.5rem;
+        max-width: 35rem;
+        width: 70%;
+        opacity: 1;
+    }
+
     .tim input {
         border: solid 0.1rem var(--white);
     }
@@ -2572,11 +2602,13 @@ body.overlay .login-container {
 
     .featured-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: var(--spacing-xl);
         padding: var(--spacing-sm) 0;
     }
-
+    .track-title{
+        font-size: 1rem;
+    }
     .main-content-left {
         margin-bottom: var(--spacing-2xl);
     }
@@ -2602,20 +2634,23 @@ body.overlay .login-container {
 
         opacity: 1;
     }
-        .login-btn {
-            background: var(--button-color);
-            padding: 0.6rem 0.8rem;
-            /* Điều chỉnh padding cho phù hợp */
-            border-radius: 0.5rem;
-            /* Bo góc nút */
-            color: var(--white);
-            /* Màu chữ */
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            white-space: nowrap;
-            font-size: 0.8rem;
-            /* Điều chỉnh kích thước chữ cho phù hợp */   }
+
+    .login-btn {
+        background: var(--button-color);
+        padding: 0.6rem 0.8rem;
+        /* Điều chỉnh padding cho phù hợp */
+        border-radius: 0.5rem;
+        /* Bo góc nút */
+        color: var(--white);
+        /* Màu chữ */
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        white-space: nowrap;
+        font-size: 0.8rem;
+        /* Điều chỉnh kích thước chữ cho phù hợp */
+    }
+
     .music-action .fa-ellipsis-vertical {
         display: block;
     }
@@ -2629,6 +2664,7 @@ body.overlay .login-container {
     }
 
     .new-bxh {
+        padding-top: var(--spacing-md);
         flex-direction: column;
         grid-template-columns: repeat(1, 1fr);
     }
@@ -2693,4 +2729,65 @@ body.overlay .login-container {
         position: absolute;
         display: none;
     }
+
+    .genre-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .track-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .new-img {
+        position: relative;
+        width: 4rem;
+        height: 4rem;
+        margin-right: 2rem;
+    }
+    .new-img P{
+        font-size: 1.3rem;
+    }
+    .new-img img {
+        width: 4rem;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 0.3rem;
+        margin-right: 1rem;
+    }
+    .new-info h3 {
+        font-size: 0.9rem;
+        /* 10px */
+        font-weight: 300;
+    }
+    .banners {
+        height: 200px;
+    }
+
+
+
+    /* .bannerss {
+        border-radius: 0.8rem;
+        position: absolute;
+        max-width: 600px;
+        width: 100%;
+        aspect-ratio: 3 / 1.4;
+        overflow: hidden;
+        background-color: #111;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        font-family: sans-serif;
+        border: 2px solid transparent;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+        transition: transform 0.8s ease, z-index 0.8s ease, opacity 0.8s ease, scale 0.8s ease;
+        transform-style: preserve-3d;
+    }
+
+    .bannerss img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+    } */
 }

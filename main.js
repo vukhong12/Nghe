@@ -240,6 +240,8 @@ window.onload = function () {
 
     function sli() {
         if (slide.length !== position.length) return;
+        const isSmallScreen = window.innerWidth < 768;
+
         slide.forEach((item, index) => {
             item.style.transform = position[index].transform;
             item.style.zIndex = position[index].zIndex;
