@@ -2,38 +2,60 @@
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>W Music - Khám phá nhạc mới</title>
-    <meta name="description" content="Khám phá các playlist và album nhạc hot nhất hôm nay.">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Khám phá các playlist và album nhạc hot nhất hôm nay." />
+    <link rel="stylesheet" href="style.css" />
     <script src="main.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 
 <body>
-
-
     <div class="music-container">
-
         <!-- Sidebar -->
         <aside class="sidebar">
             <header class="sidebar-header">
-                <h1 class="logo"><a href="index.html">W Music</a></h1>
+                <h1 class="logo"><a href="#" data-page="home">W Music</a></h1>
             </header>
             <form action="#" class="search" id="search-form">
-                <input type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm nhạc">
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>     </form>
+                <input type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm nhạc" />
+                <button type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
             <nav class="sidebar-nav">
                 <ul>
-                    <li><a href="index.html"><i class="fa-solid fa-house"></i><p>Trang chủ</p> </a></li>
-                    <li><a href="khampha.html"><i class="fa-solid fa-table"></i> <p>Khám phá</p></a></li>
-                    <li><a href="theloai.html"><i class="fa-solid fa-layer-group"></i> <p>Danh Mục</p></a></li>
-                    <li><a href="thuvien.html"><i class="fa-solid fa-music"></i> <p>Thư viện</p></a></li>
+                    <li>
+                        <a href="#" data-page="home">
+                            <i class="fa-solid fa-house"></i>
+                            <p>Trang chủ</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="khampha">
+                            <i class="fa-solid fa-table"></i>
+                            <p>Khám phá</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="theloai">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <p>Danh Mục</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-page="thuvien">
+                            <i class="fa-solid fa-music"></i>
+                            <p>Thư viện</p>
+                        </a>
+                    </li>
                     <li class="sear">
-                        <a id="toggle-search"><i class="fa-solid fa-magnifying-glass"></i>
+                        <a id="toggle-search" href="#">
+                            <i class="fa-solid fa-magnifying-glass"></i>
                             <p>Tìm kiếm</p>
-                        </a>               </li>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <footer class="sidebar-footer">
@@ -44,17 +66,22 @@
 
         <!-- Main area -->
         <div class="main-area">
-
             <!-- Music Controls -->
             <header class="music-controls">
                 <div class="controls-left">
-                    <button id="prev-btn" aria-label="Bài trước"><i class="fa-solid fa-backward"></i></button>
-                    <button id="toggleBtn" aria-label="Phát / Dừng"><i class="fa-solid fa-play"></i></button>
-                    <button id="next-btn" aria-label="Bài tiếp"><i class="fa-solid fa-forward"></i></button>
+                    <button id="prev-btn" aria-label="Bài trước">
+                        <i class="fa-solid fa-backward"></i>
+                    </button>
+                    <button id="toggleBtn" aria-label="Phát / Dừng">
+                        <i class="fa-solid fa-play"></i>
+                    </button>
+                    <button id="next-btn" aria-label="Bài tiếp">
+                        <i class="fa-solid fa-forward"></i>
+                    </button>
                 </div>
                 <div class="controls-play">
                     <div class="play-img">
-                        <img src="img/pmq.png" alt="Ảnh bài hát đang phát">
+                        <img src="img/pmq.png" alt="Ảnh bài hát đang phát" />
                     </div>
                     <div class="play-info">
                         <div>
@@ -69,7 +96,7 @@
                     <audio style="display: none;" id="adio" src="mp3/muon.mp3" controls></audio>
                 </div>
                 <div class="controls-right">
-                    <input type="range" class="volume-bar" id="volume-bar" min="0" max="1" step="0.01" value="1">
+                    <input type="range" class="volume-bar" id="volume-bar" min="0" max="1" step="0.01" value="1" />
 
                     <button id="toggle-upnext" aria-label="Hiển thị danh sách phát tiếp theo">
                         <i class="fa-solid fa-list"></i>
@@ -81,17 +108,10 @@
             <div class="content-area">
                 <main class="main-content-left">
 
-                    <section class="discover">
-                        <h2>Khám phá nhạc mới mỗi ngày</h2>
-                        <p>1 tháng miễn phí, sau đó 65.000₫/tháng.</p>
-                        <button class="cta-button"><a href="premium.html">Dùng thử miễn phí</a></button>
-                        <a href="#" class="student-link">Xem Gói sinh viên</a>
-                    </section>
-
                 </main>
                 <footer class="footer">
                     <div class="footer-section footer-logo">
-                        <img src="img/30-4.png" alt="Logo W Music">
+                        <img src="img/30-4.png" alt="Logo W Music" />
                     </div>
 
                     <div class="footer-section footer-content">
@@ -104,8 +124,14 @@
                         </ul>
 
                         <div class="contact-info">
-                            <p>Hotline: <a href="tel:0123456789">0123 456 789</a></p>
-                            <p>Email: <a href="vanvu03022005@gmail.com">vanvu03022005@gmail.com</a></p>
+                            <p>
+                                Hotline:
+                                <a href="tel:0123456789">0123 456 789</a>
+                            </p>
+                            <p>
+                                Email:
+                                <a href="vanvu03022005@gmail.com">vanvu03022005@gmail.com</a>
+                            </p>
                             <p>Địa chỉ: Hải Bình, Hải Lăng, Quảng Trị</p>
                         </div>
                     </div>
@@ -124,15 +150,12 @@
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                     <!-- <p>Không có bài hát nào sắp tới.</p> -->
-                    <div id="playlist-container">
-                    </div>
-
+                    <div id="playlist-container"></div>
                 </aside>
             </div>
-
         </div>
-
     </div>
+
 
 </body>
 

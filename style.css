@@ -569,7 +569,8 @@ body {
     perspective: 1500px;
     width: 100%;
     /* max-width: 1000px; */
-    height: 400px;
+    max-height: 400px;
+    height: 100%;
     margin-bottom: var(--spacing-lg);
 }
 
@@ -659,6 +660,10 @@ body {
 } */
 
 /* Nổi bật */
+.featured {
+    margin-top: var(--spacing-md);
+}
+
 .featured-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -2433,9 +2438,11 @@ body.overlay .login-container {
     .premium-header h2 {
         font-size: 2rem;
     }
-    .discover{
+
+    .discover {
         height: 60vh;
     }
+
     .premium-plan {
         width: 100%;
         max-width: 350px;
@@ -2487,24 +2494,28 @@ body.overlay .login-container {
         width: 100%;
         height: 3.5rem;
     }
-    .controls-play{
+
+    .controls-play {
         max-width: none;
         position: absolute;
         bottom: 3.5rem;
         left: 0;
-        animation: nhac 0.8s  alternate;
+        animation: nhac 0.8s alternate;
     }
+
     /* .play-info{
         flex: 1;
     } */
     @keyframes nhac {
-        0%{
+        0% {
             left: -100%;
         }
-        100%{
+
+        100% {
             left: 0;
         }
     }
+
     .content-area {
         flex-direction: column;
         margin-top: 0;
@@ -2515,15 +2526,18 @@ body.overlay .login-container {
         margin-top: var(--spacing-xl);
         margin-top: 0;
     }
+
     .info-card h3 {
         font-size: 1rem;
         /* 16px */
         font-weight: 400;
         margin: 0 0.1rem;
     }
-    .info-card p a{
+
+    .info-card p a {
         font-size: 0.9rem;
     }
+
     .sidebar-nav ul {
         display: flex;
         gap: var(--spacing-lg);
@@ -2606,9 +2620,11 @@ body.overlay .login-container {
         gap: var(--spacing-xl);
         padding: var(--spacing-sm) 0;
     }
-    .track-title{
+
+    .track-title {
         font-size: 1rem;
     }
+
     .main-content-left {
         margin-bottom: var(--spacing-2xl);
     }
@@ -2737,15 +2753,18 @@ body.overlay .login-container {
     .track-section {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .new-img {
         position: relative;
         width: 4rem;
         height: 4rem;
         margin-right: 2rem;
     }
-    .new-img P{
+
+    .new-img P {
         font-size: 1.3rem;
     }
+
     .new-img img {
         width: 4rem;
         aspect-ratio: 1 / 1;
@@ -2753,14 +2772,18 @@ body.overlay .login-container {
         border-radius: 0.3rem;
         margin-right: 1rem;
     }
+
     .new-info h3 {
         font-size: 0.9rem;
         /* 10px */
         font-weight: 300;
     }
-    .banners {
-        height: 200px;
-    }
+
+        .banners {
+            height: auto;
+            height: 250px;
+            margin-bottom: 4rem;
+        }
 
 
 

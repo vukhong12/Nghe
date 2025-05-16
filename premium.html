@@ -1,254 +1,115 @@
-<!DOCTYPE html>
-<html lang="vi">
+<main class="main-content-left">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>W Music - Khám phá nhạc mới</title>
-    <meta name="description" content="Khám phá các playlist và album nhạc hot nhất hôm nay.">
-    <link rel="stylesheet" href="style.css">
-    <script src="main.js" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-</head>
-
-<body>
-
-    <div class="music-container">
-
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <header class="sidebar-header">
-                <h1 class="logo"><a href="index.html">W Music</a></h1>
-            </header>
-            <form action="#" class="search" id="search-form">
-                <input type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm nhạc">
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
-            <nav class="sidebar-nav">
-                <ul>
-                    <li><a href="index.html"><i class="fa-solid fa-house"></i>
-                            <p>Trang chủ</p>
-                        </a></li>
-                    <li><a href="khampha.html"><i class="fa-solid fa-table"></i>
-                            <p>Khám phá</p>
-                        </a></li>
-                    <li><a href="theloai.html"><i class="fa-solid fa-layer-group"></i>
-                            <p>Danh Mục</p>
-                        </a></li>
-                    <li><a href="thuvien.html"><i class="fa-solid fa-music"></i>
-                            <p>Thư viện</p>
-                        </a></li>
-                    <li class="sear">
-                        <a id="toggle-search"><i class="fa-solid fa-magnifying-glass"></i>
-                            <p>Tìm kiếm</p>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <footer class="sidebar-footer">
-                <a href="#">Mở trong ứng dụng</a>
-                <a href="#">Dùng thử Beta</a>
-            </footer>
-        </aside>
-
-        <!-- Main area -->
-        <div class="main-area">
-
-            <!-- Music Controls -->
-            <header class="music-controls">
-                <div class="controls-left">
-                    <button id="prev-btn" aria-label="Bài trước"><i class="fa-solid fa-backward"></i></button>
-                    <button id="toggleBtn" aria-label="Phát / Dừng"><i class="fa-solid fa-play"></i></button>
-                    <button id="next-btn" aria-label="Bài tiếp"><i class="fa-solid fa-forward"></i></button>
-                </div>
-                <div class="controls-play">
-                    <div class="play-img">
-                        <img src="img/pmq.png" alt="Ảnh bài hát đang phát">
-                    </div>
-                    <div class="play-info">
-                        <div>
-                            <h3>Tên bài hát</h3>
-                            <p>Tên nghệ sĩ</p>
-                        </div>
-                        <div class="progress-container" onclick="setProgress(event)">
-                            <div class="buffer-bar" id="buffer-bar"></div>
-                            <div class="progress-bar" id="progress-bar"></div>
-                        </div>
-                    </div>
-                    <audio style="display: none;" id="adio" src="mp3/muon.mp3" controls></audio>
-                </div>
-                <div class="controls-right">
-                    <input type="range" class="volume-bar" id="volume-bar" min="0" max="1" step="0.01" value="1">
-            
-                    <button id="toggle-upnext" aria-label="Hiển thị danh sách phát tiếp theo">
-                        <i class="fa-solid fa-list"></i>
-                    </button>
-                    <a href="#" class="login-btn">Đăng nhập</a>
-                </div>
-            </header>
-
-            <!-- Content Area -->
-            <div class="content-area">
-                <main class="main-content-left">
-
-                    <section class="premium-section">
-                        <div class="premium-header">
-                            <h2>Nâng cấp trải nghiệm âm nhạc của bạn</h2>
-                            <p class="premium-subtitle">Thưởng thức âm nhạc không giới hạn, không quảng cáo</p>
-                        </div>
-
-                        <div class="premium-plans">
-                            <div class="premium-plan featured">
-                                <div class="plan-badge">Phổ biến nhất</div>
-                                <h3>Gói Cá nhân</h3>
-                                <div class="plan-price">
-                                    <p class="price-main">65.000₫<span>/tháng</span></p>
-                                    <p class="price-promo">1 tháng đầu miễn phí</p>
-                                </div>
-                                <ul class="plan-features">
-                                    <li><i class="fa-solid fa-check"></i> Nghe nhạc không quảng cáo</li>
-                                    <li><i class="fa-solid fa-check"></i> Nghe offline không cần mạng</li>
-                                    <li><i class="fa-solid fa-check"></i> Chất lượng âm thanh cao cấp</li>
-                                    <li><i class="fa-solid fa-check"></i> Không giới hạn bỏ qua bài hát</li>
-                                </ul>
-                                <button class="cta-button">Dùng thử miễn phí</button>
-                                <p class="plan-note">Hủy bất cứ lúc nào</p>
-                            </div>
-
-                            <div class="premium-plan">
-                                <h3>Gói Sinh viên</h3>
-                                <div class="plan-price">
-                                    <p class="price-main">32.500₫<span>/tháng</span></p>
-                                    <p class="price-promo">Giảm 50% cho sinh viên</p>
-                                </div>
-                                <ul class="plan-features">
-                                    <li><i class="fa-solid fa-check"></i> Tất cả tính năng của gói Cá nhân</li>
-                                    <li><i class="fa-solid fa-check"></i> Xác minh sinh viên hàng năm</li>
-                                </ul>
-                                <button class="cta-button secondary">Xác minh ngay</button>
-                                <p class="plan-note">Cần email trường đại học</p>
-                            </div>
-                        </div>
-
-                        <div class="premium-benefits">
-                            <h3>Tại sao nên nâng cấp lên Premium?</h3>
-                            <div class="benefits-grid">
-                                <div class="benefit-item">
-                                    <i class="fa-solid fa-ban"></i>
-                                    <h4>Không quảng cáo</h4>
-                                    <p>Thưởng thức âm nhạc liên tục không gián đoạn</p>
-                                </div>
-                                <div class="benefit-item">
-                                    <i class="fa-solid fa-download"></i>
-                                    <h4>Nghe offline</h4>
-                                    <p>Tải nhạc và nghe mọi lúc mọi nơi</p>
-                                </div>
-                                <div class="benefit-item">
-                                    <i class="fa-solid fa-music"></i>
-                                    <h4>Chất lượng cao</h4>
-                                    <p>Âm thanh chất lượng cao lên đến 320kbps</p>
-                                </div>
-                                <div class="benefit-item">
-                                    <i class="fa-solid fa-forward"></i>
-                                    <h4>Bỏ qua không giới hạn</h4>
-                                    <p>Nghe bài hát bạn thích, bỏ qua bài không thích</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- <div class="premium-faq">
-                            <h3>Câu hỏi thường gặp</h3>
-                            <div class="faq-item">
-                                <div class="faq-question">
-                                    <h4>Tôi có thể hủy gói Premium bất cứ lúc nào không?</h4>
-                                    <i class="fa-solid fa-chevron-down"></i>
-                                </div>
-                                <div class="faq-answer">
-                                    <p>Có, bạn có thể hủy dịch vụ Premium của mình bất cứ lúc nào. Sau khi hủy, bạn vẫn
-                                        có thể sử dụng dịch
-                                        vụ Premium cho đến khi kết thúc chu kỳ thanh toán hiện tại.</p>
-                                </div>
-                            </div>
-                            <div class="faq-item">
-                                <div class="faq-question">
-                                    <h4>Làm thế nào để thanh toán?</h4>
-                                    <i class="fa-solid fa-chevron-down"></i>
-                                </div>
-                                <div class="faq-answer">
-                                    <p>W Music chấp nhận nhiều phương thức thanh toán khác nhau như thẻ tín dụng/ghi nợ,
-                                        ví điện tử (MoMo,
-                                        ZaloPay, VNPay), và các phương thức thanh toán khác.</p>
-                                </div>
-                            </div>
-                            <div class="faq-item">
-                                <div class="faq-question">
-                                    <h4>Làm thế nào để xác minh tôi là sinh viên?</h4>
-                                    <i class="fa-solid fa-chevron-down"></i>
-                                </div>
-                                <div class="faq-answer">
-                                    <p>Để nhận được giá sinh viên, bạn cần cung cấp địa chỉ email của trường đại học và
-                                        một số giấy tờ xác
-                                        minh như thẻ sinh viên. Chúng tôi cần xác minh lại mỗi năm để đảm bảo bạn vẫn
-                                        đang học.</p>
-                                </div>
-                            </div>
-                        </div> -->
-
-                        <div class="premium-cta">
-                            <h3>Sẵn sàng nâng cấp trải nghiệm âm nhạc của bạn?</h3>
-                            <button class="cta-button large">Bắt đầu dùng thử miễn phí</button>
-                            <p class="terms">Áp dụng điều khoản và điều kiện. Tháng dùng thử miễn phí không áp dụng cho
-                                người dùng đã từng
-                                dùng thử hoặc đăng ký Premium.</p>
-                        </div>
-                    </section>
-
-                </main>
-                <footer class="footer">
-                    <div class="footer-section footer-logo">
-                        <img src="img/30-4.png" alt="Logo W Music">
-                    </div>
-
-                    <div class="footer-section footer-content">
-                        <p>© 2024 W Music. Bản quyền thuộc về W Music.</p>
-
-                        <ul class="social-icons">
-                            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                        </ul>
-
-                        <div class="contact-info">
-                            <p>Hotline: <a href="tel:0123456789">0123 456 789</a></p>
-                            <p>Email: <a href="vanvu03022005@gmail.com">vanvu03022005@gmail.com</a></p>
-                            <p>Địa chỉ: Hải Bình, Hải Lăng, Quảng Trị</p>
-                        </div>
-                    </div>
-
-                    <div class="footer-section footer-links">
-                        <a href="#">Giới thiệu</a>
-                        <a href="#">Điều khoản sử dụng</a>
-                        <a href="#">Chính sách bảo mật</a>
-                        <a href="#">Liên hệ</a>
-                        <a href="#">Hỗ trợ khách hàng</a>
-                    </div>
-                </footer>
-                <aside class="up-next">
-                    <h3>Tiếp theo</h3>
-                    <button id="toggle-upnext1" aria-label="Đóng danh sách phát tiếp theo">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                    <!-- <p>Không có bài hát nào sắp tới.</p> -->
-                    <div id="playlist-container">
-                    </div>
-                
-                </aside>
-            </div>
-
+    <section class="premium-section">
+        <div class="premium-header">
+            <h2>Nâng cấp trải nghiệm âm nhạc của bạn</h2>
+            <p class="premium-subtitle">Thưởng thức âm nhạc không giới hạn, không quảng cáo</p>
         </div>
 
-    </div>
+        <div class="premium-plans">
+            <div class="premium-plan featured">
+                <div class="plan-badge">Phổ biến nhất</div>
+                <h3>Gói Cá nhân</h3>
+                <div class="plan-price">
+                    <p class="price-main">65.000₫<span>/tháng</span></p>
+                    <p class="price-promo">1 tháng đầu miễn phí</p>
+                </div>
+                <ul class="plan-features">
+                    <li><i class="fa-solid fa-check"></i> Nghe nhạc không quảng cáo</li>
+                    <li><i class="fa-solid fa-check"></i> Nghe offline không cần mạng</li>
+                    <li><i class="fa-solid fa-check"></i> Chất lượng âm thanh cao cấp</li>
+                    <li><i class="fa-solid fa-check"></i> Không giới hạn bỏ qua bài hát</li>
+                </ul>
+                <button class="cta-button">Dùng thử miễn phí</button>
+                <p class="plan-note">Hủy bất cứ lúc nào</p>
+            </div>
 
-</body>
+            <div class="premium-plan">
+                <h3>Gói Sinh viên</h3>
+                <div class="plan-price">
+                    <p class="price-main">32.500₫<span>/tháng</span></p>
+                    <p class="price-promo">Giảm 50% cho sinh viên</p>
+                </div>
+                <ul class="plan-features">
+                    <li><i class="fa-solid fa-check"></i> Tất cả tính năng của gói Cá nhân</li>
+                    <li><i class="fa-solid fa-check"></i> Xác minh sinh viên hàng năm</li>
+                </ul>
+                <button class="cta-button secondary">Xác minh ngay</button>
+                <p class="plan-note">Cần email trường đại học</p>
+            </div>
+        </div>
 
-</html>
+        <div class="premium-benefits">
+            <h3>Tại sao nên nâng cấp lên Premium?</h3>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="fa-solid fa-ban"></i>
+                    <h4>Không quảng cáo</h4>
+                    <p>Thưởng thức âm nhạc liên tục không gián đoạn</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fa-solid fa-download"></i>
+                    <h4>Nghe offline</h4>
+                    <p>Tải nhạc và nghe mọi lúc mọi nơi</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fa-solid fa-music"></i>
+                    <h4>Chất lượng cao</h4>
+                    <p>Âm thanh chất lượng cao lên đến 320kbps</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fa-solid fa-forward"></i>
+                    <h4>Bỏ qua không giới hạn</h4>
+                    <p>Nghe bài hát bạn thích, bỏ qua bài không thích</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="premium-faq">
+            <h3>Câu hỏi thường gặp</h3>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>Tôi có thể hủy gói Premium bất cứ lúc nào không?</h4>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Có, bạn có thể hủy dịch vụ Premium của mình bất cứ lúc nào. Sau khi hủy, bạn vẫn
+                        có thể sử dụng dịch
+                        vụ Premium cho đến khi kết thúc chu kỳ thanh toán hiện tại.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>Làm thế nào để thanh toán?</h4>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>W Music chấp nhận nhiều phương thức thanh toán khác nhau như thẻ tín dụng/ghi nợ,
+                        ví điện tử (MoMo,
+                        ZaloPay, VNPay), và các phương thức thanh toán khác.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4>Làm thế nào để xác minh tôi là sinh viên?</h4>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Để nhận được giá sinh viên, bạn cần cung cấp địa chỉ email của trường đại học và
+                        một số giấy tờ xác
+                        minh như thẻ sinh viên. Chúng tôi cần xác minh lại mỗi năm để đảm bảo bạn vẫn
+                        đang học.</p>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="premium-cta">
+            <h3>Sẵn sàng nâng cấp trải nghiệm âm nhạc của bạn?</h3>
+            <button class="cta-button large">Bắt đầu dùng thử miễn phí</button>
+            <p class="terms">Áp dụng điều khoản và điều kiện. Tháng dùng thử miễn phí không áp dụng cho
+                người dùng đã từng
+                dùng thử hoặc đăng ký Premium.</p>
+        </div>
+    </section>
+
+</main>
